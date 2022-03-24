@@ -13,11 +13,11 @@
 | INTAKE_CONDITION | VARCHAR(N)| FALSE |
 | NAME|VARCHAR(N) | TRUE| 
 | SEX_UPON_INTAKE | VARCHAR(N) | FALSE | 
-* ANIMAL_INS 테이블에서 모든 컬럼을 가져오고
-* ANIMAL_ID를 정렬해서 가져오는 문제이다.
-* 방법은 Select *를 통해 모든 칼럼을 가져오고
-* Order By ANIMAL_ID를 넣어
-* ANIMAL_ID를 정렬하여 조회하면 된다.
+> ANIMAL_INS 테이블에서 모든 컬럼을 가져오고
+ANIMAL_ID를 정렬해서 가져오는 문제이다.
+방법은 Select *를 통해 모든 칼럼을 가져오고
+Order By ANIMAL_ID를 넣어
+ANIMAL_ID를 정렬하여 조회하면 된다.
 
 ### 답안
 Select * 
