@@ -54,25 +54,49 @@ WHERE INTAKE_CONDITION = 'Sick'
 order by ANIMAL_ID;
 
 ## 어린 동물 찾기
+<img width="534" alt="image" src="https://user-images.githubusercontent.com/102028778/159899237-b1612507-cfca-4ac8-816a-65cbba823ad2.png">
+<img width="534" alt="image" src="https://user-images.githubusercontent.com/102028778/159899363-35f62a41-1e13-4f95-bfbc-4ec9ec9daa10.png">
 
-
+### * 설명
+> ANIMAL_INS테이블에서 ANIMAL_ID, NAME컴럼을 조회하지만 
+> INTAKE_CONDITION컴럼이 AGED가 아닌 것을 조건으로 두기 때문에 <>을 써서 Where절을 완성하고
+> 마지막으로 ANIMAL_ID를 오름차순(ASC)로 계산한다.
+### * 답안
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_INS 
+WHERE INTAKE_CONDITION <> 'Aged'
+order by ANIMAL_ID ASC;
 ## 동물의 아이디와 이름
 <img width="522" alt="image" src="https://user-images.githubusercontent.com/102028778/159849064-a9978ce9-5bea-40d1-85a1-b4d025b17b63.png">
 
 ### * 설명
-
+> ANIMAL_INS테이블에서 ANIMAL_ID, NAME컬럼을 가져오고 ANIMAL_ID를 오름차순(ASC)로 정렬한다.
 ### * 답안
-
+SELECT ANIMAL_ID, NAME
+FROM ANIMAL_INS 
+order by ANIMAL_ID ASC;
 ## 여러 기준으로 정렬하기
 <img width="522" alt="image" src="https://user-images.githubusercontent.com/102028778/159849412-d3ea3322-7f02-4e63-b873-a01083cabdcc.png">
 <img width="522" alt="image" src="https://user-images.githubusercontent.com/102028778/159849617-cb7af358-04a5-4972-9d9e-3728736b7d33.png">
 
 ### * 설명
-
+> ANIMAL_INS테이블에서 ANIMAL_ID,NAME,DATETIME을 가져오는데 
+> NAME을 먼저 오름차순(ASC)으로 정렬을 하고 바로 DATETIME을 내림차순(DESC)을 해 가져오는 것이다.
 ### * 답안
-
+SELECT ANIMAL_ID, NAME,DATETIME
+FROM ANIMAL_INS 
+order by NAME ASC,DATETIME DESC
 ## 상위 n개 레코드
+<img width="527" alt="image" src="https://user-images.githubusercontent.com/102028778/159903040-8671d2c9-b2b2-42e2-854b-62dbc8b1f911.png">
+<img width="527" alt="image" src="https://user-images.githubusercontent.com/102028778/159903099-4cb4e2e7-6edb-4dbf-8b91-f1ad3d96435d.png">
 
 ### * 설명
-
+> 테이블을 조회할 때 SELECT * 
+FROM ANIMAL_INS 
+ORDER BY DATETIME으로 DATETIME을 오름차순으로 정렬하여 DATETIME이 가장 빠른 시간으로 정렬하고, Where절에서 ROWNUM < 2를 써 상위 1개 값 NAME 컬럼만 조회한다.
 ### * 답안
+SELECT NAME
+FROM (SELECT * 
+FROM ANIMAL_INS 
+ORDER BY DATETIME) 
+WHERE ROWNUM < 2;
